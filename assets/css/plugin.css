@@ -1,0 +1,86 @@
+.align-vertical{
+	vertical-align: center;
+}
+.game-details{
+}
+.kda{
+	font-size: 3.5em;
+}
+.champion, .date{
+	font-size: 1em;
+}
+.win{
+	color: #5dc09e;
+	font-family: sans-serif !important;
+}
+.lost{
+	color: #e95c4e;
+	font-family: sans-serif !important; 
+}
+.img-circle{
+	border-radius: 50%;
+}
+.img-spell, .img-item {
+	width: 10%;
+	margin-right: 1%;
+}
+.img-spell:last-of-type, .img-item:last-of-type{
+	margin-right:0;
+}
+.img-circle{
+	width: 110px;
+}
+.pull-left{
+	float: left;
+	margin-bottom:20px;
+	margin-right:20px;
+}
+.pull-right{
+	float: right;
+}
+.game > .game-details > div > ul > li{
+	list-style-type: none;
+}
+.game-details ul {
+	margin:0 !important;
+}
+@media (min-width: 1450px){
+	.game{
+		padding: 25px;
+	}
+}
+@media (min-width: 1200px) and (max-width: 1449px){
+	.game{
+		padding: 20px;
+	}
+}
+@media (min-width: 990px) and (max-width: 1199px){
+	.game{
+		padding: 15px;
+	}
+}
+@media (min-width: 751px) and (max-width: 989px){
+	.game{
+		padding: 15px;
+	}
+}
+@media (min-width: 650px) and (max-width: 750px){
+	.game{
+		padding: 15px;
+	}
+}
+@media (min-width: 501px) and (max-width: 649px){
+	.game{
+		padding: 15px;
+		font-size:80%;
+	}
+}
+@media (max-width: 500px){
+	.img-circle{
+		width: 65px;
+	}
+	.game{
+		padding: 10px;
+		font-size:80%;
+	}
+}
