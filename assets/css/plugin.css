@@ -1,7 +1,11 @@
+.entry-content{
+	width: 90% !important;
+	max-width: 90% !important;
+}
 .align-vertical{
 	vertical-align: center;
 }
-.game-details{
+.player-details{
 }
 .kda{
 	font-size: 3.5em;
@@ -38,39 +42,39 @@
 .pull-right{
 	float: right;
 }
-.game > .game-details > div > ul > li{
+.player > .player-details > div > ul > li{
 	list-style-type: none;
 }
-.game-details ul {
+.player-details ul {
 	margin:0 !important;
 }
 @media (min-width: 1450px){
-	.game{
+	.player{
 		padding: 25px;
 	}
 }
 @media (min-width: 1200px) and (max-width: 1449px){
-	.game{
+	.player{
 		padding: 20px;
 	}
 }
 @media (min-width: 990px) and (max-width: 1199px){
-	.game{
+	.player{
 		padding: 15px;
 	}
 }
 @media (min-width: 751px) and (max-width: 989px){
-	.game{
+	.player{
 		padding: 15px;
 	}
 }
 @media (min-width: 650px) and (max-width: 750px){
-	.game{
+	.player{
 		padding: 15px;
 	}
 }
 @media (min-width: 501px) and (max-width: 649px){
-	.game{
+	.player{
 		padding: 15px;
 		font-size:80%;
 	}
@@ -79,8 +83,38 @@
 	.img-circle{
 		width: 65px;
 	}
-	.game{
+	.player{
 		padding: 10px;
 		font-size:80%;
 	}
+}
+.blue-player, .purple-player{
+	width: 100%;
+}
+.blue-team, .purple-team{
+	width: 49%;
+}
+.progress-info{
+	width: 33%;
+}
+.player-info{
+	width: 66%;
+}
+.progress-bar {
+	height: 100%;
+	border-radius: 13px; /* (height of inner div) / 2 + padding */
+	padding: 3px;
+}
+.progress-bar > .bar {
+	height: 5px;
+	border-radius: 10px;
+}
+.progress-bar > .red{
+	background-color: red;
+}
+.progress-bar > .green{
+	background-color: green;
+}
+.progress-bar > .orange{
+	background-color: orange;
 }
