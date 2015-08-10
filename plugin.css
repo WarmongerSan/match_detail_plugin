@@ -8,7 +8,7 @@
 .player-details{
 }
 .kda{
-	font-size: 3.5em;
+	font-size: 2.5em;
 }
 .champion, .date{
 	font-size: 1em;
@@ -62,6 +62,7 @@
 }
 .player-info{
 	width: 66%;
+	margin-bottom: 20px;
 }
 .progress-bar {
 	height: 100%;
@@ -80,6 +81,11 @@
 }
 .progress-bar > .orange{
 	background-color: orange;
+}
+.info {
+	float:left;
+	margin-top:10px;
+	margin-left:10px;
 }
 @media (min-width: 1450px){
 	.player{

@@ -181,7 +181,7 @@ foreach($game->participants as $participant):
 			<div class="player-info" style="float: <?php echo ($i < 5) ? 'left' : 'right' ; ?>;">
 				<div class="player-details">
 					<div class="pull-left"><img class="img-circle" src="<?php echo get_match_champion_path_for_id($participant->championId); ?>" /></div>
-					<div style="float:left; margin-top:10px;">
+					<div class="info">
 						<span class="kda"><?php echo $participant->stats->kills . " / " . $participant->stats->deaths . " / " . $participant->stats->assists; ?></span><br/>
 						<span class="champion"><?php echo $participant->championName; ?> | <?php echo $participant->queueType; ?></span><br/>
 					</div>
