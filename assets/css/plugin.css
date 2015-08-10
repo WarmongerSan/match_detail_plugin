@@ -32,12 +32,11 @@
 	margin-right:0;
 }
 .img-circle{
-	width: 110px;
+	width: 90px;
 }
 .pull-left{
 	float: left;
 	margin-bottom:20px;
-	margin-right:20px;
 }
 .pull-right{
 	float: right;
@@ -47,6 +46,13 @@
 }
 .player-details ul {
 	margin:0 !important;
+}
+.blue-team {
+	width:48%;
+	margin-right:4%;
+}
+.purple-team {
+	width:48%;
 }
 @media (min-width: 1450px){
 	.player{
