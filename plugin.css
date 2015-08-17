@@ -8,7 +8,7 @@
 .player-details{
 }
 .kda{
-	font-size: 3.5em;
+	font-size: 2.5em;
 }
 .champion, .date{
 	font-size: 1em;
@@ -32,12 +32,11 @@
 	margin-right:0;
 }
 .img-circle{
-	width: 110px;
+	width: 90px;
 }
 .pull-left{
 	float: left;
 	margin-bottom:20px;
-	margin-right:20px;
 }
 .pull-right{
 	float: right;
@@ -47,6 +46,46 @@
 }
 .player-details ul {
 	margin:0 !important;
+}
+.blue-team {
+	width:48%;
+	margin-right:4%;
+}
+.purple-team {
+	width:48%;
+}
+.blue-player, .purple-player{
+	width: 100%;
+}
+.progress-info{
+	width: 33%;
+}
+.player-info{
+	width: 66%;
+	margin-bottom: 20px;
+}
+.progress-bar {
+	height: 100%;
+	border-radius: 13px; /* (height of inner div) / 2 + padding */
+	padding: 3px;
+}
+.progress-bar > .bar {
+	height: 5px;
+	border-radius: 10px;
+}
+.progress-bar > .red{
+	background-color: red;
+}
+.progress-bar > .green{
+	background-color: green;
+}
+.progress-bar > .orange{
+	background-color: orange;
+}
+.info {
+	float:left;
+	margin-top:10px;
+	margin-left:10px;
 }
 @media (min-width: 1450px){
 	.player{
@@ -87,34 +126,4 @@
 		padding: 10px;
 		font-size:80%;
 	}
-}
-.blue-player, .purple-player{
-	width: 100%;
-}
-.blue-team, .purple-team{
-	width: 49%;
-}
-.progress-info{
-	width: 33%;
-}
-.player-info{
-	width: 66%;
-}
-.progress-bar {
-	height: 100%;
-	border-radius: 13px; /* (height of inner div) / 2 + padding */
-	padding: 3px;
-}
-.progress-bar > .bar {
-	height: 5px;
-	border-radius: 10px;
-}
-.progress-bar > .red{
-	background-color: red;
-}
-.progress-bar > .green{
-	background-color: green;
-}
-.progress-bar > .orange{
-	background-color: orange;
 }

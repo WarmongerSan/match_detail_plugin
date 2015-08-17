@@ -12,7 +12,7 @@
  	// fields to it
  	add_settings_section(
 		'eg_setting_section',
-		'Riot API settings',
+		'Riot Match API settings',
 		'eg_setting_section_callback_function',
 		'general'
 	);
