@@ -1,109 +1,109 @@
 
 <?php $options = get_option('eg_setting');		
 
-switch($participant->queueType){
+switch($game->queueType){
 
 	
 
 	case "RANKED_SOLO_5x5":
 
-		$participant->queueType = "Ranked";
+		$game->queueType = "Ranked";
 
 		break;
 
 	case "NORMAL":
 
-		$participant->queueType = "Normal";
+		$game->queueType = "Normal";
 
 		break;
 
 	case "NORMAL_3x3":
 
-		$participant->queueType = "Normal 3x3";
+		$game->queueType = "Normal 3x3";
 
 		break;
 
 	case "CAP_5x5":
 
-		$participant->queueType = "Team Builder";
+		$game->queueType = "Team Builder";
 
 		break;
 
 	case "BOT":
 
-		$participant->queueType = "Bot";
+		$game->queueType = "Bot";
 
 		break;
 
 	case "BOT_3x3":
 
-		$participant->queueType = "Bot 3x3";
+		$game->queueType = "Bot 3x3";
 
 		break;
 
 	case "RANKED_PREMADE_3x3":
 
-		$participant->queueType = "Premade 3x3";
+		$game->queueType = "Premade 3x3";
 
 		break;
 
 	case "RANKED_PREMADE_5x5":
 
-		$participant->queueType = "Premade";
+		$game->queueType = "Premade";
 
 		break;
 
 	case "RANKED_TEAM_3x3":
 
-		$participant->queueType = "Teams 3x3";
+		$game->queueType = "Teams 3x3";
 
 		break;
 
 	case "RANKED_TEAM_5x5":
 
-		$participant->queueType = "Teams";
+		$game->queueType = "Teams";
 
 		break;
 
 	case "ARAM_UNRANKED_5x5":
 
-		$participant->queueType = "Aram Unranked";
+		$game->queueType = "Aram Unranked";
 
 		break;
 
 	case "ONEFORALL_5x5":
 
-		$participant->queueType = "One For All";
+		$game->queueType = "One For All";
 
 		break;
 
 	case "URF":
 
-		$participant->queueType = "Ultra Rapid Fire";
+		$game->queueType = "Ultra Rapid Fire";
 
 		break;
 
 	case "URF_BOT":
 
-		$participant->queueType = "Ultra Rapid Fire Bot";
+		$game->queueType = "Ultra Rapid Fire Bot";
 
 		break;
 
 	case "HEXAKILL":
 
-		$participant->queueType = "Hexakill";
+		$game->queueType = "Hexakill";
 
 		break;
 
 	case "KING_PORO":
 
-		$participant->queueType = "King Poro";
+		$game->queueType = "King Poro";
 
 		break;
 
 	case "COUNTER_PICK":
 
-		$participant->queueType = "Counter Pick";
+		$game->queueType = "Counter Pick";
 
 		break;
 		
@@ -116,6 +116,23 @@ switch($participant->queueType){
 		
 		<div class="blue-team pull-left">
 		<?php
+$dmgDealt = array();
+$dmgTaken = array();
+$maxGold = array();
+foreach($game->participants as $participant):
+
+	$dmgDealt[$participant->participantId] = $participant->stats->totalDamageDealt;
+	$dmgTaken[$participant->participantId] = $participant->stats->totalDamageTaken;
+	$maxGold[$participant->participantId] = $participant->stats->goldEarned;
+
+endforeach;
+		
+arsort($dmgDealt);
+arsort($dmgTaken);
+arsort($maxGold);
+
+var_dump($maxGold);
+		
 $i = 0;
 foreach($game->participants as $participant):
 	
@@ -183,7 +200,7 @@ foreach($game->participants as $participant):
 					<div class="pull-left"><img class="img-circle" src="<?php echo get_match_champion_path_for_id($participant->championId); ?>" /></div>
 					<div class="info">
 						<span class="kda"><?php echo $participant->stats->kills . " / " . $participant->stats->deaths . " / " . $participant->stats->assists; ?></span><br/>
-						<span class="champion"><?php echo $participant->championName; ?> | <?php echo $participant->queueType; ?></span><br/>
+						<span class="champion"><?php echo $participant->championName; ?> | <?php echo $game->queueType; ?></span><br/>
 					</div>
 				</div>
 				<div style="clear:both;">
@@ -191,10 +208,10 @@ foreach($game->participants as $participant):
 				</div>
 			</div>
 			<div class="progress-info" style="float: <?php echo ($i < 5) ? 'left' : 'right' ; ?>;">
-				<div class="progress-bar" style="text-align: <?php echo ($i < 5) ? 'left' : 'right' ; ?>;">
-				  <div class="bar red" style="clear: both; width: 25% !important; <?php echo ($i < 5) ? '' : 'float: right;' ; ?>">&nbsp;</div>
-				  <div class="bar green" style="clear: both; width: 34% !important; <?php echo ($i < 5) ? '' : 'float: right;' ; ?>">&nbsp;</div>
-				  <div class="bar orange" style="clear: both; width: 44% !important; <?php echo ($i < 5) ? '' : 'float: right;' ; ?>">&nbsp;</div>
+				<div class="progress-bar">
+				  <div class="bar red" style="clear: both; width: <?php echo ($dmgDealt[$participant->participantId] / max($dmgDealt) * 100); ?>% !important;">&nbsp;</div>
+				  <div class="bar green" style="clear: both; width: <?php echo ($dmgTaken[$participant->participantId] / max($dmgTaken) * 100); ?>% !important;">&nbsp;</div>
+				  <div class="bar orange" style="clear: both; width: <?php echo ($maxGold[$participant->participantId] / max($maxGold) * 50); ?>% !important;">&nbsp;</div>
 				</div>
 			</div>
 			<div style="clear: both;"></div>
