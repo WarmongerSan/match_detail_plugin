@@ -131,7 +131,7 @@ arsort($dmgDealt);
 arsort($dmgTaken);
 arsort($maxGold);
 
-var_dump($maxGold);
+// var_dump($maxGold);
 		
 $i = 0;
 foreach($game->participants as $participant):
@@ -206,13 +206,13 @@ foreach($game->participants as $participant):
 				<div style="clear:both;">
 					<img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item0); ?>" /><img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item1); ?>" /><img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item2); ?>" /><img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item3); ?>" /><img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item4); ?>" /><img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item5); ?>" /><img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item6); ?>" /><img class="img-spell" src="<?php echo get_match_spell_path_for_id($participant->spell1Id); ?>" /><img class="img-spell" src="<?php echo get_match_spell_path_for_id($participant->spell2Id); ?>" />
 				</div>
-			</div>
 			<div class="progress-info" style="float: <?php echo ($i < 5) ? 'left' : 'right' ; ?>;">
 				<div class="progress-bar">
 				  <div class="bar red" style="clear: both; width: <?php echo ($dmgDealt[$participant->participantId] / max($dmgDealt) * 100); ?>% !important;">&nbsp;</div>
 				  <div class="bar green" style="clear: both; width: <?php echo ($dmgTaken[$participant->participantId] / max($dmgTaken) * 100); ?>% !important;">&nbsp;</div>
 				  <div class="bar orange" style="clear: both; width: <?php echo ($maxGold[$participant->participantId] / max($maxGold) * 50); ?>% !important;">&nbsp;</div>
 				</div>
+			</div>
 			</div>
 			<div style="clear: both;"></div>
 		</div>
