@@ -191,16 +191,21 @@ foreach($game->participants as $participant):
 				</div><div class='purple-team pull-right'>
 			";			
 		}
-		
 		?>
 		
-		<div class="<?php echo ($i < 5) ? 'blue' : 'purple'; ?>-player player<?php echo $i; ?>">
-			<div class="player-info" style="float: <?php echo ($i < 5) ? 'left' : 'right' ; ?>;">
+		<div class="<?php echo ($i < 5) ? 'blue' : 'purple'; ?>-player player<?php echo $i; ?><?php echo ($_GET['participantId'] == $participant->participantId) ? ' searched' : ''; ?>">
+			<div class="player-info <?php echo ($participant->stats->winner == "true") ? 'win' : 'lost'; ?>" style="float: <?php echo ($i < 5) ? 'left' : 'right' ; ?>;">
 				<div class="player-details">
 					<div class="pull-left"><img class="img-circle" src="<?php echo get_match_champion_path_for_id($participant->championId); ?>" /></div>
 					<div class="info">
+						<span class="name"><?php echo ($game->queueType == "Ranked" || 
+													   $game->queueType == "Teams" || 
+													   $game->queueType == "Premade 3x3" || 
+													   $game->queueType == "Premade" ||
+													   $game->queueType == "Teams 3x3") ? $game->participantIdentities[($participant->participantId - 1)]->player->summonerName : $participant->championName; ?></span>
 						<span class="kda"><?php echo $participant->stats->kills . " / " . $participant->stats->deaths . " / " . $participant->stats->assists; ?></span><br/>
 						<span class="champion"><?php echo $participant->championName; ?> | <?php echo $game->queueType; ?></span><br/>
+						<span class="rest">level <?php echo $participant->stats->champLevel; ?> | <?php echo $participant->stats->minionsKilled ?> creep | <?php echo round($participant->stats->goldEarned / 1000, 1) ?>k gold | kda <?php echo round(($participant->stats->kills + $participant->stats->assists) / $participant->stats->deaths, 2); ?></span>
 					</div>
 				</div>
 				<div style="clear:both;">

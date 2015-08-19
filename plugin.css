@@ -13,11 +13,11 @@
 .champion, .date{
 	font-size: 1em;
 }
-.win{
+.win, .win span{
 	color: #5dc09e;
 	font-family: sans-serif !important;
 }
-.lost{
+.lost, .lost span{
 	color: #e95c4e;
 	font-family: sans-serif !important; 
 }
@@ -125,4 +125,7 @@
 		padding: 10px;
 		font-size:80%;
 	}
+}
+.searched > .player-info{
+	background-color: rgba(171, 255, 0, 0.4);
 }
