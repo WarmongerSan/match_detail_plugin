@@ -31,21 +31,21 @@ function get_match_items(){
     return $items;
 }
 function get_match_item_path_for_id($itemId) {
-	return plugin_dir_url( __FILE__ ) . "/images/items/" . "item_" . $itemId . ".png";
+	return plugin_dir_url( __FILE__ ) . "/images/" . "item_" . $itemId . ".png";
 }
 function get_match_sumSpells(){
     $sumSpells = file_get_contents(plugin_dir_path( __FILE__ )."/json/sumSpells.txt");
     return $sumSpells;
 }
 function get_match_spell_path_for_id($spellId) {
-	return plugin_dir_url( __FILE__ ) . "/images/spells/" . "spell_" . $spellId . ".png";
+	return plugin_dir_url( __FILE__ ) . "/images/" . "spell_" . $spellId . ".png";
 }
 function get_match_champions(){
     $champions = file_get_contents(plugin_dir_path( __FILE__ )."/json/champions.txt");
     return $champions;
 }
 function get_match_champion_path_for_id($champId) {
-	return plugin_dir_url( __FILE__ ) . "/images/champions/" . "champ_" . $champId . ".png";
+	return plugin_dir_url( __FILE__ ) . "/images/" . "champ_" . $champId . ".png";
 }
 function show_match() {
 	$game = json_decode(get_match($_GET['matchId'], $_GET['region'] ));
