@@ -1,4 +1,3 @@
-
 <?php $options = get_option('eg_setting');		
 
 switch($game->queueType){
@@ -226,4 +225,4 @@ foreach($game->participants as $participant):
 
 $i ++; endforeach;
 		?>
-		</div>
+</div>

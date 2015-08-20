@@ -71,3 +71,4 @@
 	 $options = get_option('eg_setting');
  	echo '<input name="eg_setting[amount_games]" id="eg_setting_amount_games" type="number" max="10" min="1" value="'.$options['amount_games'].'" />';
  }
+?>

@@ -59,3 +59,4 @@ function show_match() {
 	include(plugin_dir_path( __FILE__ )."/match.php");	
     return ob_get_clean();
 }
+?>
