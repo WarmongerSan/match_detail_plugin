@@ -55,7 +55,7 @@ switch($game->queueType){
 		break;
 		}
 		?>
-		<div class="blue-team pull-left">
+		<div class="blue-team">
 		<?php
 $dmgDealt = array();
 $dmgTaken = array();
@@ -120,40 +120,24 @@ foreach($game->participants as $participant):
 		if (!isset($participant->stats->deaths)) {$participant->stats->deaths = 0;}
 		
 		if (!isset($participant->stats->assists)) {$participant->stats->assists = 0;}
-		
-		if($i == 5){
-			echo "
-				</div><div class='purple-team pull-right'>
-			";
-		}
 		?>
 		<div class="<?php echo ($i < 5) ? 'blue' : 'purple'; ?>-player player<?php echo $i; ?><?php echo ($_GET['participantId'] == $participant->participantId) ? ' searched' : ''; ?>">
-			<div class="player-info <?php echo ($participant->stats->winner == "true") ? 'win' : 'lost'; ?>" style="float: <?php echo ($i < 5) ? 'left' : 'right' ; ?>;">
-				<div class="player-details">
-					<div class="pull-left"><img class="img-circle" src="<?php echo get_match_champion_path_for_id($participant->championId); ?>" /></div>
-					<div class="info">
-						<span class="name"><?php echo ($game->queueType == "Ranked" ||
-													   $game->queueType == "Teams" ||
-													   $game->queueType == "Premade 3x3" ||
-													   $game->queueType == "Premade" ||
-													   $game->queueType == "Teams 3x3") ? $game->participantIdentities[($participant->participantId - 1)]->player->summonerName : $participant->championName; ?></span>
-						<span class="kda"><?php echo $participant->stats->kills . " / " . $participant->stats->deaths . " / " . $participant->stats->assists; ?></span><br/>
-						<span class="champion"><?php echo $participant->championName; ?> | <?php echo $game->queueType; ?></span><br/>
-						<span class="rest">level <?php echo $participant->stats->champLevel; ?> | <?php echo $participant->stats->minionsKilled ?> creep | <?php echo round($participant->stats->goldEarned / 1000, 1) ?>k gold | kda <?php echo round(($participant->stats->kills + $participant->stats->assists) / $participant->stats->deaths, 2); ?></span>
-					</div>
-				</div>
-				<div style="clear:both;">
-					<img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item0); ?>" /><img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item1); ?>" /><img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item2); ?>" /><img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item3); ?>" /><img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item4); ?>" /><img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item5); ?>" /><img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item6); ?>" /><img class="img-spell" src="<?php echo get_match_spell_path_for_id($participant->spell1Id); ?>" /><img class="img-spell" src="<?php echo get_match_spell_path_for_id($participant->spell2Id); ?>" />
-				</div>
+			<div class="player-info <?php echo ($participant->stats->winner == "true") ? 'win' : 'lost'; ?>">
+				<div class="pull-left" style="width:10%;"><img class="img-circle" src="<?php echo get_match_champion_path_for_id($participant->championId); ?>" /></div>				<div class="pull-left" style="width:10%;">
+					<span class="name"><?php echo ($game->queueType == "Ranked" ||
+												   $game->queueType == "Teams" ||
+												   $game->queueType == "Premade 3x3" ||
+												   $game->queueType == "Premade" ||
+												   $game->queueType == "Teams 3x3") ? $game->participantIdentities[($participant->participantId - 1)]->player->summonerName : $participant->championName; ?></span>				</div>				<div class="pull-left" style="width:15%;">
+					<span class="kda"><?php echo $participant->stats->kills . " / " . $participant->stats->deaths . " / " . $participant->stats->assists; ?></span>				</div>				<div class="pull-left" style="width:30%;">					<img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item0); ?>" /><img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item1); ?>" /><img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item2); ?>" /><img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item3); ?>" /><img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item4); ?>" /><img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item5); ?>" /><img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item6); ?>" /><img class="img-spell" src="<?php echo get_match_spell_path_for_id($participant->spell1Id); ?>" /><img class="img-spell" src="<?php echo get_match_spell_path_for_id($participant->spell2Id); ?>" />				</div>				<div class="pull-left" style="width:35%;">					<span class="rest">level <?php echo $participant->stats->champLevel; ?> | <?php echo $participant->stats->minionsKilled ?> creep | <?php echo round($participant->stats->goldEarned / 1000, 1) ?>k gold | kda <?php echo round(($participant->stats->kills + $participant->stats->assists) / $participant->stats->deaths, 2); ?></span>				</div>
+			</div>			<div style="clear:both;"></div>			<!--
 			<div class="progress-info" style="float: <?php echo ($i < 5) ? 'left' : 'right' ; ?>;">
 				<div class="progress-bar">
-				  <div class="bar red" style="clear: both; width: <?php echo ($dmgDealt[$participant->participantId] / max($dmgDealt) * 100); ?>% !important;">&nbsp;</div>
-				  <div class="bar green" style="clear: both; width: <?php echo ($dmgTaken[$participant->participantId] / max($dmgTaken) * 100); ?>% !important;">&nbsp;</div>
-				  <div class="bar orange" style="clear: both; width: <?php echo ($maxGold[$participant->participantId] / max($maxGold) * 50); ?>% !important;">&nbsp;</div>
+					<div class="bar red" style="clear: both; width: <?php echo ($dmgDealt[$participant->participantId] / max($dmgDealt) * 100); ?>% !important;">&nbsp;</div>
+					<div class="bar green" style="clear: both; width: <?php echo ($dmgTaken[$participant->participantId] / max($dmgTaken) * 100); ?>% !important;">&nbsp;</div>
+					<div class="bar orange" style="clear: both; width: <?php echo ($maxGold[$participant->participantId] / max($maxGold) * 50); ?>% !important;">&nbsp;</div>
 				</div>
-			</div>
-			</div>
-			<div style="clear: both;"></div>
+			</div>			-->
 		</div>
 		<?php $i ++; endforeach; ?>
 </div>
