@@ -1,14 +1,14 @@
-.entry-content  table, .entry-content tr, .entry-content td{
+table.match-table, .match-table table, .match-table tr, .match-table td{
 	padding: 0px !important;
 	border: 0;
 	margin-right: 0;
 	margin-bottom: 0;
 }
-.entry-content td{
+.match-table td{
 	height: 75px;
 }
-.entry-content{
-	/*line-height: 75px !important;*/
+.match-table {
+	line-height: 75px !important;
 }
 .blue-player, .purple-player{
 	color: black;
