@@ -242,7 +242,7 @@ foreach($game->participants as $participant):
 					</tr>
 				</table>
 			</td>
-			<td style="clear:both; width: 0;"></td>
+			<td style="clear:both; width: 0; height: 0;"></td>
 		</tr>
 		<?php $i ++; endforeach; ?>
 </table>
