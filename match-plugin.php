@@ -7,7 +7,7 @@ Author: Ainsley Wheeler
 Version: 0.1.1
 Author URI: http://lolhistoryapp.com
 */
-if(!get_option('eg_setting_api_key')){
+if(!get_option('eg_setting')){
 	include("settings.php");
 }
 $options = get_option('eg_setting');
