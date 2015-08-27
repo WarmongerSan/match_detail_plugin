@@ -15,8 +15,14 @@ table.match-table, .match-table table, .match-table td{
 .match-table td{
 	height: 75px;
 }
-.match-table > tbody > tr > td, .progress-table > tbody > tr > td{
-	border: 1pt solid #BBB;
+.match-table > tbody > tr > td:first-child, .progress-table > tbody > tr > td{
+	border: 1px solid #BBB;
+}
+.match-table > tbody > tr > td:first-child, .progress-table > tbody > tr:first-child > td{
+	border-bottom: 0;
+}
+.progress-table > tbody > tr:not(:last-child) > td:not(:last-child){
+	border-right: 0;
 }
 .team-info{
 	background-color: rgba(200,200,200, 0.5);
