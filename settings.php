@@ -1,70 +1,89 @@
 <?php
-// ------------------------------------------------------------------
-// Add all your sections, fields and settings during admin_init
-// ------------------------------------------------------------------
-//
-function eg_settings_match_api_init() {
-	if ( !current_user_can( 'manage_options' ) )  {
-		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
-	}
-	
-	// Add the section to reading settings so we can add our
-	// fields to it
+add_action( 'admin_menu', 'apis_add_admin_menu' );
+
+add_action( 'admin_init', 'apis_settings_init' );
+
+function apis_add_admin_menu(  ) { 
+
+	add_options_page( 'LoL API Plugin', 'LoL API Plugin', 'manage_options', 'lol_api_plugin', 'lol_api_plugin_options_page' );
+
+}
+
+
+function apis_settings_init(  ) { 
+
+	register_setting( 'pluginPage', 'eg_setting' );
+
 	add_settings_section(
-		'eg_setting_section',
-		'Riot Match API settings',
-		'eg_setting_section_callback_function',
-		'general'
+		'apis_pluginPage_section', 
+		__( 'Your section description', 'wordpress' ), 
+		'apis_settings_section_callback', 
+		'pluginPage'
 	);
-	
-	// Add the field with the names and function to use for our new
-	// settings, put it in our new section
-	add_settings_field(
-		'eg_setting_api_key',
-		'API Key',
-		'eg_setting_callback_function',
-		'general',
-		'eg_setting_section'
-	);
-	
-	add_settings_field(
-		'eg_setting_amount_games',
-		'Amount of games to display',
-		'eg_setting_callback_function2',
-		'general',
-		'eg_setting_section'
-	);
-	
-	// Register our setting so that $_POST handling is done for us and
-	// our callback function just has to echo the <input>
-	register_setting( 'general', 'eg_setting' );
-} // eg_settings_api_init()
-add_action( 'admin_init', 'eg_settings_api_init' );
 
-// ------------------------------------------------------------------
-// Settings section callback function
-// ------------------------------------------------------------------
-//
-// This function is needed if we added a new section. This function
-// will be run at the start of our section
-//
- function eg_setting_section_callback_function() {
-	echo '<p>Change these settings to make to plugin work.</p>';
-}
- 
-// ------------------------------------------------------------------
-// Callback function for our example setting
-// ------------------------------------------------------------------
-//
-// creates a checkbox true/false option. Other types are surely possible
-//
-function eg_setting_callback_function() {
-	$options = get_option('eg_setting');
-	echo '<input name="eg_setting[api_key]" id="eg_setting_api_key" type="text" value="'.$options['api_key'].'" />';
+	add_settings_field( 
+		'api_key', 
+		__( 'LoL API key', 'wordpress' ), 
+		'apis_text_field_0_render', 
+		'pluginPage', 
+		'apis_pluginPage_section' 
+	);
+
+	add_settings_field( 
+		'amount_games', 
+		__( 'Amount of games to display', 'wordpress' ), 
+		'apis_text_field_1_render', 
+		'pluginPage', 
+		'apis_pluginPage_section' 
+	);
+
+
 }
 
-function eg_setting_callback_function2() {
-	$options = get_option('eg_setting');
-	echo '<input name="eg_setting[amount_games]" id="eg_setting_amount_games" type="number" max="10" min="1" value="'.$options['amount_games'].'" />';
+
+function apis_text_field_0_render(  ) { 
+
+	$options = get_option( 'eg_setting' );
+	?>
+	<input type='text' name='eg_setting[api_key]' value='<?php echo $options['api_key']; ?>'>
+	<?php
+
 }
+
+
+function apis_text_field_1_render(  ) { 
+
+	$options = get_option( 'eg_setting' );
+	?>
+	<input type='text' name='eg_setting[amount_games]' value='<?php echo $options['amount_games']; ?>'>
+	<?php
+
+}
+
+
+function apis_settings_section_callback(  ) { 
+
+	echo __( 'LoL API Plugin settings', 'wordpress' );
+
+}
+
+
+function lol_api_plugin_options_page(  ) { 
+
+	?>
+	<form action='options.php' method='post'>
+		
+		<h2>LoL API Plugin</h2>
+		
+		<?php
+		settings_fields( 'pluginPage' );
+		do_settings_sections( 'pluginPage' );
+		submit_button();
+		?>
+		
+	</form>
+	<?php
+
+}
+
 ?>
