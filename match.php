@@ -90,7 +90,7 @@ arsort($dmgTaken);
 arsort($maxGold);
 $i = 0;
 ?>
-<table>
+<table class="match-table">
 	<tr>
 		<td class="pull-left" style="width: 15%; margin-left: 5%;">
 			<?php echo $teamKills[100] . "/" . $teamDeaths[100] . "/" . $teamAssists[100]; ?>
