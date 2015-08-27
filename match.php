@@ -210,22 +210,22 @@ foreach($game->participants as $participant):
 							<img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item0); ?>" /><img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item1); ?>" /><img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item2); ?>" /><img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item3); ?>" /><img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item4); ?>" /><img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item5); ?>" /><img class="img-item" src="<?php echo get_match_item_path_for_id($participant->item6); ?>" /> | <img class="img-spell" src="<?php echo get_match_spell_path_for_id($participant->spell1Id); ?>" /><img class="img-spell" src="<?php echo get_match_spell_path_for_id($participant->spell2Id); ?>" />
 						</td>
 						<td class="pull-left" style="width:5%; margin-left: 2%;">
-							<?php echo round(($participant->stats->kills + $participant->stats->assists) / ($teamKills[$participant->teamId] + $teamAssists[$participant->teamId]) * 100); ?>%
+							<span title="kill participation"><?php echo round(($participant->stats->kills + $participant->stats->assists) / ($teamKills[$participant->teamId] + $teamAssists[$participant->teamId]) * 100); ?>%</span>
 						</td>
 						<td class="pull-left" style="width:5%;">
-							<?php echo $participant->stats->wardsPlaced; ?>
+							<span title="wards placed"><?php echo $participant->stats->wardsPlaced; ?></span>
 						</td>
 						<td class="pull-left" style="width:5%;">
-							<?php echo $participant->stats->minionsKilled; ?>
+							<span title="creeps"><?php echo $participant->stats->minionsKilled; ?></span>
 						</td>
 						<td class="pull-left" style="width:5%;">
-							<?php echo round($participant->stats->minionsKilled / ($game->matchDuration / 60), 2); ?>
+							<span title="creeps per minute"><?php echo round($participant->stats->minionsKilled / ($game->matchDuration / 60), 2); ?></span>
 						</td>
 						<td class="pull-left" style="width:5%;">
-							<?php echo round($participant->stats->goldEarned / 1000, 2); ?>K
+							<span title="gold earned"><?php echo round($participant->stats->goldEarned / 1000, 2); ?>K</span>
 						</td>
 						<td class="pull-left" style="width:5%;">
-							<?php echo round($participant->stats->goldEarned / ($game->matchDuration / 60)); ?>
+							<span title="gold earned per minute"><?php echo round($participant->stats->goldEarned / ($game->matchDuration / 60)); ?></span>
 						</td>
 					</tr>
 				</table>
