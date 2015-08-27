@@ -1,11 +1,25 @@
-table.match-table, .match-table table, .match-table tr, .match-table td{
+table.match-table, .match-table table, .match-table td{
 	padding: 0px !important;
 	border: 0;
 	margin-right: 0;
 	margin-bottom: 0;
 }
+ .match-table tr{
+	padding: 0px !important;
+	margin-right: 0;
+	margin-bottom: 0;
+ }
+.progress-table, .progress-table tr, .progress-table td{
+	border: 0;
+}
 .match-table td{
 	height: 75px;
+}
+.match-table > tbody > tr > td, .progress-table > tbody > tr > td{
+	border: 1pt solid #BBB;
+}
+.team-info{
+	background-color: rgba(200,200,200, 0.5);
 }
 .match-table img{
 	vertical-align: middle;
@@ -135,5 +149,5 @@ table.match-table, .match-table table, .match-table tr, .match-table td{
 	}
 }
 .searched > .player-info{
-	background-color: rgba(171, 255, 0, 0.4);
+	background-color: rgba(200, 200, 200, 0.5);
 }
