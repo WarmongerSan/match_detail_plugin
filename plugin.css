@@ -7,6 +7,9 @@ table.match-table, .match-table table, .match-table tr, .match-table td{
 .match-table td{
 	height: 75px;
 }
+.match-table img{
+	vertical-align: middle;
+}
 .match-table {
 	line-height: 75px !important;
 }
@@ -77,22 +80,13 @@ table.match-table, .match-table table, .match-table tr, .match-table td{
 .player-info{
 	margin-bottom: 20px;
 }
-.progress-bar {
-	height: 100%;
-	border-radius: 13px; /* (height of inner div) / 2 + padding */
-	padding: 3px;
-}
-.progress-bar > .bar {
-	height: 5px;
-	border-radius: 10px;
-}
-.progress-bar > .red{
+.progress-table .red{
 	background-color: red;
 }
-.progress-bar > .green{
+.progress-table .green{
 	background-color: green;
 }
-.progress-bar > .orange{
+.progress-table .yellow{
 	background-color: orange;
 }
 .info {

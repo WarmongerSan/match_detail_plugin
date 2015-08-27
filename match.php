@@ -231,15 +231,31 @@ foreach($game->participants as $participant):
 				</table>
 			</td>
 			<td style="clear:both; width: 0;"></td>
-			<!--
-			<div class="progress-info" style="float: <?php echo ($i < 5) ? 'left' : 'right' ; ?>;">
-				<div class="progress-bar">
-					<div class="bar red" style="clear: both; width: <?php echo ($dmgDealt[$participant->participantId] / max($dmgDealt) * 100); ?>% !important;">&nbsp;</div>
-					<div class="bar green" style="clear: both; width: <?php echo ($dmgTaken[$participant->participantId] / max($dmgTaken) * 100); ?>% !important;">&nbsp;</div>
-					<div class="bar orange" style="clear: both; width: <?php echo ($maxGold[$participant->participantId] / max($maxGold) * 50); ?>% !important;">&nbsp;</div>
-				</div>
-			</div>
-			-->
 		</tr>
 		<?php $i ++; endforeach; ?>
+</table>
+<table class="progress-table">
+	<tr>
+		<td height="50px" colspan="12"><center>
+			<div style="display: inline-block; line-height: 50px;"><div class="green" style="width: 25px; height: 25px; margin-top: 12.5px; float: left;"></div><div style="margin-left: 5px; float: left;">Damage taken</div></div>
+			<div style="display: inline-block; line-height: 50px; margin-left: 20px;"><div class="red" style="width: 25px; height: 25px; margin-top: 12.5px; float: left;"></div><div style="margin-left: 5px; float: left;">Damage done</div></div>
+			<div style="display: inline-block; line-height: 50px; margin-left: 20px;"><div class="yellow" style="width: 25px; height: 25px; margin-top: 12.5px; float: left;"></div><div style="margin-left: 5px; float: left;">Gold earned</div></div>
+		</center></td>
+	</tr>
+	<tr>
+		<td height="400px">
+			
+		</td>
+		<?php foreach($game->participants as $participant): ?>
+			<td height="400px" style="clear: both; vertical-align: bottom;">
+				<div style="display: inline-block; vertical-align: bottom; height: <?php echo ($dmgTaken[$participant->participantId] / max($dmgTaken) * 100);?>% !important; width: 20%; margin-left: 9%;" class="green">&nbsp;</div>
+				<div style="display: inline-block; vertical-align: bottom; height: <?php echo ($dmgDealt[$participant->participantId] / max($dmgDealt) * 100);?>% !important; width: 20%; margin-left: 9%;" class="red">&nbsp;</div>
+				<div style="display: inline-block; vertical-align: bottom; height: <?php echo ($maxGold[$participant->participantId] / max($maxGold) * 50);?>% !important; width: 20%; margin-left: 9%;" class="yellow">&nbsp;</div>
+			</td>
+		<?php endforeach; ?>
+		<td height="400px"></td>
+	</tr>
+	<tr>
+		
+	</tr>
 </table>
