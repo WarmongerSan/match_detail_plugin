@@ -114,6 +114,10 @@ table.match-table, .match-table table, .match-table td{
 	margin-top:10px;
 	margin-left:10px;
 }
+.player-row:hover {
+	background-color:lightblue;
+	cursor:pointer;
+}
 @media (min-width: 1450px){
 	.player{
 		padding: 25px;

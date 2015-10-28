@@ -1,3 +1,9 @@
+<script>
+function loadHistory(summonerName, region) {
+	window.open("http://www.lolhistoryapp.com/history/?summoner="+summonerName.replace(/\s+/g, '').toLowerCase()+"&region="+region,"_self")
+}
+</script>
+
 <?php $options = get_option('eg_setting');
 switch($game->queueType){
 	case "RANKED_SOLO_5x5":
@@ -198,7 +204,7 @@ foreach($game->participants as $participant):
 		</tr>
 		<?php endif;
 		?>
-		<tr class="<?php echo ($i < 5) ? 'blue' : 'purple'; ?>-player player<?php echo $i; ?><?php echo ($_GET['participantId'] == $participant->participantId) ? ' searched' : ''; ?>">
+		<tr class="player-row <?php echo ($i < 5) ? 'blue' : 'purple'; ?>-player player<?php echo $i; ?><?php echo ($_GET['participantId'] == $participant->participantId) ? ' searched' : ''; ?>" onclick="loadHistory('<?php echo $game->participantIdentities[($participant->participantId - 1)]->player->summonerName; ?>', '<?php echo $region; ?>')">
 			<td style="width: 100%" class="player-info">
 				<table>
 					<tr>
@@ -242,7 +248,7 @@ foreach($game->participants as $participant):
 					</tr>
 				</table>
 			</td>
-			<td style="clear:both; width: 0;"></td>
+			<td style="clear:both; width: 0; height: 0;"></td>
 		</tr>
 		<?php $i ++; endforeach; ?>
 </table>

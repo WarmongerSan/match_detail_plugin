@@ -48,7 +48,9 @@ function get_match_champion_path_for_id($champId) {
 	return plugin_dir_url( __FILE__ ) . "/images/" . "champ_" . $champId . ".png";
 }
 function show_match() {
-	$game = json_decode(get_match($_GET['matchId'], $_GET['region'] ));
+	$matchId = $_GET['matchId'];
+	$region = $_GET['region'];
+	$game = json_decode(get_match($matchId , $region));
     $champions = get_object_vars(json_decode(get_match_champions()));
     $items = json_decode(get_match_items());
     $sumSpells = json_decode(get_match_sumSpells());
